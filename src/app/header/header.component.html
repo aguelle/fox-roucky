@@ -1,0 +1,39 @@
+<nav class="bg-white p-4 fixed w-full top-0 z-50 shadow-md">
+  <div class="container mx-auto flex justify-between items-center">
+    <!-- Logo -->
+    <a (click)="scrollTo('hero')" class="text-gray-800 hover:text-orange-500 cursor-pointer">
+      <img src="assets/logo.jpg" alt="Fox & Roucky" class="h-16">
+    </a>
+
+    <!-- Bouton Appelez-moi (Desktop) -->
+    <div class="block">
+      <a href="tel:+33612345678" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg">
+        Appelez-moi
+      </a>
+    </div>
+
+    <!-- Menu Desktop -->
+    <div class="hidden md:flex gap-x-6">
+      <a (click)="scrollTo('about')" class="text-gray-800 hover:text-orange-500 cursor-pointer">À propos</a>
+      <a (click)="scrollTo('services')" class="text-gray-800 hover:text-orange-500 cursor-pointer">Services</a>
+      <a (click)="scrollTo('contact')" class="text-gray-800 hover:text-orange-500 cursor-pointer">Contact</a>
+    </div>
+    
+    
+    <!-- Bouton Menu Burger -->
+    <button (click)="toggleMenu()" class="md:hidden focus:outline-none">
+      <svg class="w-8 h-8 text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Menu Mobile -->
+  <div *ngIf="menuOpen" class="md:hidden flex flex-col items-center space-y-4 p-4 bg-white shadow-md">
+
+
+    <a (click)="scrollTo('about'); toggleMenu()" class="text-gray-800 hover:text-orange-500 cursor-pointer">À propos</a>
+    <a (click)="scrollTo('services'); toggleMenu()" class="text-gray-800 hover:text-orange-500 cursor-pointer">Services</a>
+    <a (click)="scrollTo('contact'); toggleMenu()" class="text-gray-800 hover:text-orange-500 cursor-pointer">Contact</a>
+  </div>
+</nav>

@@ -1,0 +1,44 @@
+<section id="hero" class="relative min-h-screen pt-32">
+  <!-- Image de fond -->
+  <div class="absolute inset-0 w-full h-full">
+    <img src="assets/hero.jpg" alt="Fox & Roucky" class="w-full h-full object-cover">
+  </div>
+  
+  <!-- Contenu superposé -->
+  <div class="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center">
+    <div class="text-white max-w-2xl">
+      <h1 class="text-5xl font-bold mb-4">Fox & Roucky</h1>
+      <p class="text-xl mb-8">Éducateur et Comportementaliste Canin</p>
+      
+      <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})" 
+              class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg cursor-pointer">
+        Découvrir mes services
+      </button>
+
+      <!-- Texte ajouté sous le bouton -->
+      <div class="mt-8 bg-gray-900 opacity-90 bg-opacity-50 p-6 rounded-lg shadow-lg text-white text-lg">
+        <p class="mb-4">
+          Situé entre <strong>Deauville</strong> et <strong>Honfleur</strong>, je vous propose différents services.
+        </p>
+        <p class="mb-4">
+          <strong>À domicile</strong>, pour plus de facilités et d’organisation, je me déplace à votre rencontre et nous travaillons
+          ensemble lors des différentes séances pour vous épanouir avec votre chien.
+        </p>
+        <p class="mb-4">
+          <strong>Sur place</strong>, basé à Cricqueboeuf, vous pouvez directement venir travailler dans un espace sûr et au
+          calme pour commencer à évoluer dans les meilleures conditions possibles.
+        </p>
+        <p class="mb-4">
+          <strong>Cours collectifs</strong>, après des premières séances en individuel et selon le comportement de votre
+          chien, nous pourrons nous diriger vers des cours collectifs qui permettront d’optimiser la
+          concentration de votre chien et ainsi avoir une écoute de plus en plus efficace.
+        </p>
+        <p>
+          <strong>Promenades en groupe</strong>, pour permettre à votre chien de s’épanouir et de pouvoir se dépenser
+          avec ses congénères lors de promenades de différentes durées. Cela apportera un équilibre naturel à
+          votre chien, qui sera plus calme par la suite.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -11,23 +11,27 @@ import { ContactService } from '../contact.service';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
-  private contactService = inject(ContactService);
-
-  contact = { name: '', email: '', message: '' };
+  contact = {
+    name: '',
+    email: '',
+    message: '',
+    confirm: false
+  };
+  isSubmitting = false;
   messageSent = false;
-  errorMessage = '';
+  messageError = false;
 
-  async onSubmit(contactForm: NgForm) {
-    if (contactForm.valid) {
-      try {
-        await this.contactService.sendMessage(this.contact);
-        this.messageSent = true;
-        contactForm.reset();
-        setTimeout(() => this.messageSent = false, 3000);
-      } catch (error) {
-        console.error('Erreur lors de l’envoi du message :', error);
-        this.errorMessage = "Erreur d'envoi. Veuillez réessayer.";
-      }
+  onSubmit(form: NgForm) {
+    if (form.invalid) {
+      return;
     }
+
+    this.isSubmitting = true;
+    // Simuler l'envoi du message
+    setTimeout(() => {
+      this.isSubmitting = false;
+      this.messageSent = true;
+      form.resetForm(); // Réinitialiser le formulaire après soumission réussie
+    }, 2000); // Temps simulé d'envoi
   }
 }

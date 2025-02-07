@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+
 
 @Component({
     selector: 'app-header',
@@ -9,6 +10,7 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   menuOpen = false;
+  isScrolled = false;
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
@@ -19,5 +21,10 @@ export class HeaderComponent {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  }
+
+  @HostListener('window:scroll',[])
+  onScroll(): void{
+    this.isScrolled = window.scrollY < 50;
   }
 }

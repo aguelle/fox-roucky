@@ -1,8 +1,9 @@
-<nav class="bg-white p-4 fixed w-full top-0 z-50 shadow-md">
+<nav [ngClass]="isScrolled ? 'bg-white shadow-md' : 'bg-white/30 backdrop-blur-md' " 
+class="p-4 fixed w-full top-0 z-50 shadow-md transition-all duration-300">
   <div class="container mx-auto flex justify-between items-center">
     <!-- Logo -->
     <a (click)="scrollTo('hero')" class="text-gray-800 hover:text-orange-500 cursor-pointer">
-      <img src="assets/logo.jpg" alt="Fox & Roucky" class="h-16">
+      <img src="assets/logo2.png" alt="Fox & Roucky" class="h-16">
     </a>
 
     <!-- Bouton Appelez-moi (Desktop) -->

@@ -1,48 +1,47 @@
-<nav [ngClass]="isScrolled ? 'bg-white shadow-md' : 'bg-white/30 backdrop-blur-md' " 
+<nav [ngClass]="isScrolled ? 'bg-white shadow-md' : 'bg-white/30 backdrop-blur-md'" 
 class="p-4 fixed w-full top-0 z-50 shadow-md transition-all duration-300">
-  <div class="container mx-auto flex items-center justify-between">
-    <!-- Logo -->
-    <a (click)="scrollTo('hero')" class="text-gray-800 hover:text-orange-500 cursor-pointer">
-      <img src="assets/logo2.png" alt="Fox & Roucky" class="h-16">
+  <div class="container mx-auto flex flex-wrap items-center justify-between">
+    <!-- Logo avec contraintes de taille -->
+    <a (click)="scrollTo('hero')" class="text-gray-800 hover:text-orange-500 cursor-pointer shrink-0">
+      <img src="assets/logo2.png" alt="Fox & Roucky" class="h-12 w-auto object-contain">
     </a>
 
     <!-- Titre et sous-titre -->
-    <div class="flex-1 text-left px-4">
-      <h1 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 whitespace-nowrap">
+    <div class="flex-1 text-left px-4 min-w-0 flex flex-col">
+      <h1 class="hidden [@media(min-width:425px)]:block text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 truncate whitespace-nowrap">
         Fox&Roucky
       </h1>
-      <p class="text-xs text-gray-600">
+      <p class="text-xs text-gray-600 hidden sm:block">
         Éducateur et Comportementaliste Canin
       </p>
     </div>
-    
 
-    <!-- Bouton Appelez-moi (Desktop) -->
-    <div class="">
-      <a href="tel:+33612345678" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg">
+    <!-- Conteneur pour le bouton d'appel et le menu desktop -->
+    <div class="flex items-center gap-4">
+      <!-- Bouton Appelez-moi -->
+      <a href="tel:+33612345678" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg whitespace-nowrap">
         Appelez-moi
       </a>
-    </div>
 
-    <!-- Menu Desktop -->
-    <div class="hidden md:flex gap-x-6 ml-4">
-      <a (click)="scrollTo('about')" class="text-gray-800 hover:text-orange-500 cursor-pointer">À propos</a>
-      <a (click)="scrollTo('services')" class="text-gray-800 hover:text-orange-500 cursor-pointer">Services</a>
-      <a (click)="scrollTo('contact')" class="text-gray-800 hover:text-orange-500 cursor-pointer">Contact</a>
+      <!-- Menu Desktop -->
+      <div class="hidden md:flex gap-x-6">
+        <a (click)="scrollTo('about')" class="text-gray-800 hover:text-orange-500 cursor-pointer">À propos</a>
+        <a (click)="scrollTo('services')" class="text-gray-800 hover:text-orange-500 cursor-pointer">Services</a>
+        <a (click)="scrollTo('contact')" class="text-gray-800 hover:text-orange-500 cursor-pointer">Contact</a>
+      </div>
+      
+      <!-- Bouton Menu Burger -->
+      <button (click)="toggleMenu()" class="md:hidden focus:outline-none">
+        <svg class="w-8 h-8 text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+        </svg>
+      </button>
     </div>
-    
-    <!-- Bouton Menu Burger -->
-
-       <button (click)="toggleMenu()" class="md:hidden focus:outline-none ml-4">
-         <svg class="w-8 h-8 text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
-          </svg>
-        </button>
   </div>
 
-  <!-- Menu Mobile -->
+  <!-- Menu Mobile (reste inchangé) -->
   <div *ngIf="menuOpen" class="md:hidden mt-4 h-screen shadow-md bg-white/30 backdrop-blur-md overflow-y-auto transition-all duration-600 ease-out">
-    <div class="flex flex-col items-center space-y-1 p-10 rounded uppercase ">
+    <div class="flex flex-col items-center space-y-1 p-10 rounded uppercase">
       <a (click)="scrollTo('about'); toggleMenu()" class="text-4xl text-white py-4 rounded bg-orange-500 w-full text-center">À propos</a>
       <a (click)="scrollTo('services'); toggleMenu()" class="text-4xl text-white py-4 rounded bg-orange-500 w-full text-center">Services</a>
       <a (click)="scrollTo('contact'); toggleMenu()" class="text-4xl text-white py-4 rounded bg-orange-500 w-full text-center">Contact</a>
@@ -54,12 +53,8 @@ class="p-4 fixed w-full top-0 z-50 shadow-md transition-all duration-300">
       </a>
     </div>
   
-    <!-- Bouton "Fermer" en bas du menu -->
     <div class="flex justify-center mt-auto mb-4">
       <button (click)="toggleMenu()" class="text-white text-sm p-4 rounded-full uppercase bg-black shadow-md">X Fermer</button>
     </div>
-  
-
-</div>
-
+  </div>
 </nav>

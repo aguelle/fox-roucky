@@ -4,12 +4,15 @@ import { provideAuth, getAuth } from '@angular/fire/auth';  // Si tu veux utilis
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';  // Firestore pour stocker les messages
 import { environment } from '../environments/environment';
 import { AppComponent } from './app/app.component';
+import { provideHttpClient } from '@angular/common/http';
+
 
 bootstrapApplication(AppComponent, {
   providers: [
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore())  // Ajoute Firestore
+    provideFirestore(() => getFirestore()),  // Ajoute Firestore
+    provideHttpClient()
 
   ]
 });

@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "imagemin": "imagemin src/assets/* --out-dir=src/assets/"
   },
   "private": true,
   "dependencies": {
@@ -33,6 +34,9 @@
     "@types/jasmine": "~5.1.0",
     "@types/nodemailer": "^6.4.17",
     "autoprefixer": "^10.4.20",
+    "imagemin-cli": "^3.0.0",
+    "imagemin-mozjpeg": "^7.0.0",
+    "imagemin-pngquant": "^5.0.1",
     "jasmine-core": "~5.2.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",

@@ -5,12 +5,10 @@ import { HeroComponent } from "./hero/hero.component";
 import { ServicesComponent } from "./services/services.component";
 import { ContactComponent } from "./contact/contact.component";
 import { FooterComponent } from "./footer/footer.component";
-import { FbReviewsComponent } from "./fb-reviews/fb-reviews.component";
-import { GoogleReviewsComponent } from "./google-reviews/google-reviews.component";
 
 @Component({
     selector: 'app-root',
-    imports: [HeaderComponent, AboutComponent, HeroComponent, ServicesComponent, ContactComponent, FooterComponent, FbReviewsComponent, GoogleReviewsComponent],
+    imports: [HeaderComponent, AboutComponent, HeroComponent, ServicesComponent, ContactComponent, FooterComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })

@@ -1,31 +1,32 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, NgForm } from '@angular/forms';
+import { NgIf } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { ContactService } from '../contact.service';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [NgIf, FormsModule],
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
   private contactService = inject(ContactService);
+
   contact = {
     name: '',
     email: '',
+    phone: '',
     message: '',
     confirm: false
   };
+
   isSubmitting = false;
   messageSent = false;
   messageError = false;
 
-  async onSubmit(form: NgForm) {
-    if (form.invalid) {
-      return;
-    }
+  async onSubmit(contactForm: any) {
+    if (contactForm.invalid) return;
 
     this.isSubmitting = true;
     this.messageSent = false;
@@ -33,13 +34,15 @@ export class ContactComponent {
 
     const response = await this.contactService.sendMessage(this.contact);
 
-    this.isSubmitting = false;
     if (response.success) {
       this.messageSent = true;
-      form.resetForm();
+      contactForm.resetForm();
+      this.contact = { name: '', email: '', phone: '', message: '', confirm: false };
     } else {
+      console.error("Erreur lors de l'envoi :", response.error);
       this.messageError = true;
-      console.error(response.error);
     }
+
+    this.isSubmitting = false;
   }
 }

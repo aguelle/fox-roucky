@@ -20,6 +20,7 @@
     "@angular/platform-browser": "^19.1.4",
     "@angular/platform-browser-dynamic": "^19.1.4",
     "@angular/router": "^19.1.4",
+    "@emailjs/browser": "^4.4.1",
     "firebase": "^11.2.0",
     "firebase-functions": "^6.3.1",
     "nodemailer": "^6.10.0",
